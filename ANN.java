@@ -14,8 +14,8 @@ public class ANN {
 		//Does 500 iterations of the learning (overkill for the OR-Gate since the weights converge quite quickly)
 		for (int iteration = 1; iteration <= 500; iteration++) {
 			//creates a random number between 0.5 and 1.5, then get's rid of the stuff after the decimal point
-			input[1] = Math.floor(Math.random()+0.5); 
-			input[2] = Math.floor(Math.random()+0.5);
+			inputs[1] = Math.floor(Math.random()+0.5); 
+			inputs[2] = Math.floor(Math.random()+0.5);
 			
 			goal = 1; //sets the goal to one, changes it if both inputs are 0 to 0 (OR-Gate)
 			if (inputs[1] == 0 && inputs[2] == 0)
