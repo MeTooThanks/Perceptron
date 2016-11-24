@@ -8,8 +8,8 @@ public class ANN {
 		
 		inputs[0] = 1;
 		
-		for (double weight : weights){
-			weight = Math.random()-1;
+		for (int k  = 0; k < weights.length; k++){
+			weights[k] = Math.random()-1;
 		}
 		
 		for (int iteration = 1; iteration <= 500; iteration++) {
