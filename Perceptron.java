@@ -14,7 +14,7 @@ public class Perceptron {
 		
 		for (int iterations = 1; iterations < 100; iterations++) {
 			for (int inputGenerator = 0; inputGenerator < inputs.length-1; inputGenerator++) 
-				inputs[inputGenerator] = (double) Math.floor(Math.random()+0.5);
+				inputs[inputGenerator] = Math.floor(Math.random()+0.5);
 			
 			System.out.println("Weights InOne: " +weights[0]);
 			System.out.println("Weights InTwo: " +weights[1]);
@@ -30,7 +30,7 @@ public class Perceptron {
 				outputState[outputIterator] = 0;
 				
 				for (int weightIterator = 0; weightIterator < weights.length; weightIterator++) 
-					weights[weightIterator] += (double) (learningRate * (expected(inputs) - outputs[outputIterator])* inputs[weightIterator]);
+					weights[weightIterator] += (learningRate * (expected(inputs) - outputs[outputIterator])* inputs[weightIterator]);
 			}
 			System.out.println("Output: " +outputs[0]);	
 		}
