@@ -14,20 +14,31 @@ public class Perceptron {
 		
 		for (int iterations = 1; iterations < 100; iterations++) {
 			for (int inputGenerator = 0; inputGenerator < inputs.length-1; inputGenerator++) {
-				inputs[inputGenerator] = Math.floor(Math.random()+0.5);
+				inputs[inputGenerator] = (double) Math.floor(Math.random()+0.5);
 			}
 			
 			double expectedOutput = expected(inputs);
-			
+
+			System.out.println("Weights InOne: " +weights[0]);
+			System.out.println("Weights InTwo: " +weights[1]);
+			System.out.println("Weights Bias: " +weights[2]);
+			System.out.println("Input 1: " +inputs[0]);
+			System.out.println("Input 2: " +inputs[1]);
 			for (int outputIterator = 0; outputIterator < outputState.length; outputIterator++) {
 				for (int inputIterator = 0; inputIterator < inputs.length; inputIterator++)
-						outputState[outputIterator] = weights[inputIterator] * inputs[inputIterator];
+						outputState[outputIterator] += weights[inputIterator] * inputs[inputIterator];
 				
 				outputs[outputIterator] = activation(outputState[outputIterator]);
+				outputState[outputIterator] = 0;
 				
 				for (int weightIterator = 0; weightIterator < weights.length; weightIterator++) 
-					weights[weightIterator] = (learningRate * (outputs[outputIterator] - expectedOutput)* inputs[weightIterator]);
+					weights[weightIterator] += (double) (learningRate * (expectedOutput - outputs[outputIterator])* inputs[weightIterator]);
+			
+				
+					
 			}
+			System.out.println("Output: " +outputs[0]);
+			
 		}
 	}
 	
