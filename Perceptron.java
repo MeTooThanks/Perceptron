@@ -33,12 +33,8 @@ public class Perceptron {
 				
 				for (int weightIterator = 0; weightIterator < weights.length; weightIterator++) 
 					weights[weightIterator] += (double) (learningRate * (expectedOutput - outputs[outputIterator])* inputs[weightIterator]);
-			
-				
-					
 			}
-			System.out.println("Output: " +outputs[0]);
-			
+			System.out.println("Output: " +outputs[0]);	
 		}
 	}
 	
